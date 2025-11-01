@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Control Mais - 学习，娱乐，赚钱</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/img/favicon.jpg" type="image/x-icon">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#facc15", // yellow-400
+              "background-light": "#f8fafc", // slate-50
+              "background-dark": "#1e293b", // slate-800
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem", // 12px
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-icons-outlined {
+        font-size: inherit;
+      }
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-700 dark:text-slate-300 antialiased"
+  >
+    <div id="root">
+<header
+  class="py-4 px-6 md:px-8 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-50"
+>
+  <div class="container mx-auto flex items-center justify-between">
+    
+    <!-- ✅ LOGO (Desktop: sempre primeiro | Mobile: sempre primeiro) -->
+    <a class="flex items-center gap-3 order-1 md:order-1" href="/i/zh/index.html">
+      <div class="bg-primary rounded-lg">
+        <img
+          src="/img/logo-controlmais.jpg"
+          alt="Control + 标志"
+          class="w-18 h-10 object-contain"
+        />
+      </div>
+    </a>
+
+    <!-- ✅ 桌面菜单 (仅在桌面显示并位于中间) -->
+    <nav class="hidden md:flex items-center gap-4 order-2">
+      <a class="text-sm font-semibold hover:text-primary" href="#depoimentos">学员评价</a>
+      <a class="text-sm font-semibold hover:text-primary" href="#duvidas">常见问题</a>
+      <a class="text-sm font-semibold py-2 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+        href="https://ev.controlmais.com.br/publico/index.php/entrar/login/">登录</a>
+      <a class="bg-primary text-black font-bold py-2 px-4 rounded-lg hover:opacity-90"
+        href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar">注册</a>
+    </nav>
+
+    <!-- ✅ 国旗 -->
+    <!-- 桌面 → 菜单后固定位置 -->
+    <!-- 移动 → 自动居中 -->
+    <div class="flex items-center gap-2 order-3 md:order-3 mx-auto md:mx-0">
+      <a href="/i/zh/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/cn.png" class="w-full h-full object-cover" alt="中文" />
+      </a>
+      <a href="/i/br/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/br.png" class="w-full h-full object-cover" alt="葡萄牙语" />
+      </a>
+      <a href="/i/en/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/us.png" class="w-full h-full object-cover" alt="英语" />
+      </a>
+      <a href="/i/es/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/es.png" class="w-full h-full object-cover" alt="西班牙语" />
+      </a>
+    </div>
+
+    <!-- ✅ 移动菜单按钮 (在移动端始终位于右侧) -->
+    <button
+      class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 order-4"
+    >
+      <span class="material-icons-outlined text-slate-800 dark:text-white">menu</span>
+    </button>
+
+  </div>
+</header>
+
+
+
+      <!-- 移动菜单 -->
+      <div
+        id="mobileMenu"
+        class="md:hidden fixed top-16 right-0 bg-background-light dark:bg-background-dark shadow-lg w-56 p-6 rounded-lg hidden"
+      >
+        <nav class="flex flex-col gap-4">
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="#depoimentos"
+            >学员评价</a
+          >
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="#duvidas"
+            >常见问题</a
+          >
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="https://ev.controlmais.com.br/publico/index.php/entrar/login/"
+            >登录</a
+          >
+          <a
+            class="bg-primary text-black font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+            href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+            >注册</a
+          >
+        </nav>
+      </div>
+
+      <main>
+        <section class="py-20 md:py-32 px-6 md:px-8">
+          <div
+            class="container mx-auto grid md:grid-cols-2 gap-12 items-center"
+          >
+            <div class="text-center md:text-left">
+              <h1
+                class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight mb-4"
+              >
+                寓教于乐，通过提高他人认知来赚钱
+              </h1>
+              <p class="text-lg md:text-xl mb-8">
+                将您的学习转变为一段有利可图且有趣的旅程。
+                通过Control Mais的课程，您不仅可以学习新技能，
+                还可以通过操作Control Mais的策略获得收益，
+                并且通过成为Control Mais的一部分赚取额外收入。
+              </p>
+              <a
+                class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg shadow-yellow-500/20"
+                href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+              >
+                立即开始
+              </a>
+            </div>
+            <div>
+              <img
+                alt="两位年轻人在笔记本电脑前微笑合作"
+                class="rounded-lg shadow-2xl w-full h-auto object-cover"
+                src="/img/welcomeimg.jpg"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20 px-6 md:px-8">
+          <div
+            class="container mx-auto flex flex-col md:flex-row items-center gap-12"
+          >
+            <!-- ✅ 右侧图片 -->
+            <div class="flex-1">
+              <div
+                class="aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg shadow-lg overflow-hidden"
+              >
+                <img
+                  src="/img/resultado.jpg"
+                  alt="结果"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <!-- ✅ 左侧文本 -->
+            <div class="flex-1 text-left">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                准备好了解何时进场和离场了吗？
+              </h2>
+
+              <p class="text-lg mb-8">
+                在Control +的课程中，您将培养在操作资产的微观波动中做出决策的关键能力。
+                向已经将这一挑战转化为实际成果的人学习。
+              </p>
+
+            
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+          id="mentoria-pam"
+        >
+          <div class="container mx-auto">
+            <div
+              class="bg-background-light dark:bg-background-dark rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center"
+            >
+              <div class="md:w-1/2 p-8 md:p-12">
+                <h2
+                  class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+                >
+                  Control Mais的课程
+                </h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                  在我们的课程中，您将接触到创新的学习方法，专注于快速见效和即时应用。
+                  我们将以简单直接的方式揭开日内交易的奥秘，让您能够做出更明智、更有利可图的决策，
+                  学习如何像专业人士一样亏损。如果您不知道如何小亏，就永远无法大赚。
+                </p>
+                <a
+                  class="inline-block bg-primary text-black font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity"
+                  href="#"
+                >
+                  了解我们的课程
+                </a>
+              </div>
+              <div class="md:w-1/2 h-64 md:h-auto">
+                <img
+                  alt="Control +导师在专业环境中微笑"
+                  class="w-full h-full object-cover"
+                  src="/img/mentoria.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8">
+          <div
+            class="container mx-auto grid md:grid-cols-2 gap-12 items-center"
+          >
+<div class="md:order-2">
+  <img
+    alt="创始人微笑照片"
+    class="rounded-lg shadow-2xl w-full max-w-md h-80 mx-auto object-contain"
+    src="/img/fundador.jpg"
+  />
+</div>
+
+
+            <div class="text-center md:text-left md:order-1">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                认识我们的创始人
+              </h2>
+              <p class="text-lg mb-4">
+                凭借多年在金融市场中亏损的经验，我们的创始人致力于帮助他人避免他所经历的痛苦、焦虑和失望。
+                他真心相信交易者需要来自日内交易之外的资金，这样他才能在没有赚钱压力的情况下进行交易，
+                不是因为需要赚钱，而是因为有能力赚钱。因此，我们正在创建一个Control Mais交易者运动，
+                以提高那些无节制亏损的新交易者的意识，但提醒他们亏损是过程的一部分，
+                不存在一场不挨打就赢的战斗。我们不会分析您的盈利，我们会分析您的亏损，
+                没有一致的亏损报告毫无意义 - 学习从日内交易之外赚钱!!!
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="py-20 md:py-32 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+        >
+          <div class="container mx-auto text-center">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight"
+            >
+              通过 <span class="text-primary">Control +</span> 教育提升并掌控您的情绪！
+            </h2>
+
+            <p
+              class="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16"
+            >
+              我们的数字说明一切。加入成功的社区，改变您的财务未来。
+            </p>
+
+         
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20 px-6 md:px-8">
+          <div class="container mx-auto">
+            <div
+              class="bg-slate-800 dark:bg-slate-900 rounded-lg p-10 md:p-16 text-center shadow-xl"
+            >
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Control + 教育：投入您的时间，专注投入，倍增您的收益。
+              </h2>
+              <div class="mt-8">
+                <a
+                  class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity"
+                  href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+                >
+                  我想成为学员！
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+<section class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- 文本 -->
+    <div class="max-w-lg">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        随时随地交易。
+      </h2>
+
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+        无论您是医生、教师、个体经营者还是家庭主妇。
+        如果您知道自己在做什么，就不需要再追随任何人。
+        不仅在市场中获得更多控制 - 在生活中各个方面获得更多自我控制以取得成功。
+      </p>
+    </div>
+
+    <!-- 图片 -->
+    <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-lg">
+      <div class="aspect-w-16 aspect-h-9">
+        <img
+          alt="实时交易室界面，包含图表和市场数据"
+          class="w-full h-80 object-cover rounded-md"
+          src="/img/saladeoperacoes.jpg"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        <section class="py-20 px-6 md:px-8" id="depoimentos">
+          <div class="container mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                我们的学员怎么说
+              </h2>
+              <p class="text-lg">
+                那些已经通过Control Mais改变学习体验的人的故事。
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "课程非常棒，非常有教学性！推荐计划是一个极好的奖励。我已经用佣金支付了我的上一个课程！"
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="安娜·席尔瓦的个人资料照片"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="/img/mulher de negocio.jpg"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      安娜·席尔瓦
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      企业家
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "终于有一个让学习变得轻松有趣的平台了。社区参与度非常高，支持也很出色。我毫无保留地推荐。"
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="卡洛斯·佩雷拉的个人资料照片"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLglaikhPtf2rn2q-9ebImceQVqffII7BR-Lxgux7RfBKVuNRtFG5Fx1d-YlEFzCVZHF7nqkL6Ixtvi7nwCWFFCARwX_9GERoOa-Xv1soGg8eMF-ydnWcwbI8RV47enx74QICIeSQjZhyEvFLB8CTyqKJdR3ujoVb6HGmZMjyT1Bhmqd0mycq3KZA3Cfd0yEXiVagLrYEEoWOVd2eQzdZOm-POMcX04KixjSmy4lUhVb1nIU2wpM7nH8-EhSWWg-j5kKcxzNmbltg"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      卡洛斯·佩雷拉
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      优步司机
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "我从未想过学习微观波动可以如此容易理解。Control Mais改变了我的视角，为我的职业生涯打开了新的大门。"
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="朱莉安娜·科斯塔的个人资料照片"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghE4MTV8g_bSkP0yZ-cdSYW2p7X5pGn9HFMcsMao7mvtrCpPxnpWYL6Jn2w7VpaKCqTDC3r3xEc9DDfH5z81fA12H7P8FgUMObodSM7rvGUh27nO4whenUmv-WFvc4ge-kHZDSy56qjaudk7JVA1pHsjaVEImcweO3yK-bLvl6nsDYzS95hn-KKZC15LYsahTmDP7VeiTtoxOsujpDiFkZJ7a9C-jgjnE1XpOFf6IMqNzQ6NsWS9qbOA9cO6-7OAMrWNqGDms9m0"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      朱莉安娜·科斯塔
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      护理技术员
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8">
+          <div class="container mx-auto text-center max-w-3xl">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            >
+              改变生活！
+            </h2>
+
+            <p class="text-lg mb-8">
+              教育是进化和财务自由的道路，知识的力量改变生活，发展自我的人有能力改变自己的现实！
+            </p>
+
+            <div
+              class="aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg shadow-lg mb-8 overflow-hidden"
+            >
+              <img
+                src="/img/licenciada.jpg"
+                alt="结果"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+        <section
+          class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+          id="duvidas"
+        >
+          <div class="container mx-auto max-w-3xl">
+            <div class="text-center mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                常见问题
+              </h2>
+              <p class="text-lg">
+                在这里找到最常见问题的答案。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  推荐计划如何运作？
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  很简单！注册后，您会收到一个专属链接。
+                  每个通过您的链接注册的朋友，您都会获得佣金。
+                  您推荐的朋友越多，您赚的就越多！
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  有哪些付款方式？
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  我们接受主要的付款方式，包括信用卡、PIX和银行汇票。
+                  整个过程是安全的，并在加密环境中进行。
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  我可以终身访问课程吗？
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  是的！一旦购买，您将终身拥有课程内容的访问权，包括我们将来对材料所做的所有更新。
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  课程提供证书吗？
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  您最好的证书是您的业绩报告。
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- 文本 -->
+    <div class="max-w-lg">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+       以纪律和目的进行日内交易
+      </h2>
+
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+日内交易是一种投资方式，需要的不仅仅是知道点击买入或卖出。
+它是一种纪律、情绪控制、意识和策略的游戏。
+在Control Mais，我们相信交易者的形成不仅仅取决于正确的决策，
+更主要的是管理自己亏损的能力——因为学会小亏的人，长期来看会赚得更多。
+      </p>
+    </div>
+
+    <!-- 图片 -->
+    <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-lg">
+      <div class="aspect-w-16 aspect-h-9">
+        <img
+          alt="实时交易室界面，包含图表和市场数据"
+          class="w-full h-80 object-cover rounded-md"
+          src="/img/daytrade.jpg"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+        <section class="py-20 px-6 md:px-8" id="cta">
+          <div class="container mx-auto">
+            <div
+              class="bg-slate-800 dark:bg-slate-900 rounded-lg p-10 md:p-16 text-center shadow-xl bg-[url('image-placeholder-5.png')] bg-cover bg-center"
+            >
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                准备好开始您的旅程了吗？
+              </h2>
+              <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+                加入我们的学员社区，发现一种学习、成长和赚钱的新方式。
+                您的下一个伟大成就从这里开始。
+              </p>
+              <a
+                class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity"
+                href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+              >
+                免费注册
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="bg-slate-100 dark:bg-slate-900 py-12 px-6 md:px-8">
+        <div
+          class="container mx-auto text-center text-slate-500 dark:text-slate-400"
+        >
+          <a class="flex items-center justify-center gap-3 mb-4" href="#">
+            <div class="bg-primary p-2 rounded-lg">
+              <span class="material-icons-outlined text-black">show_chart</span>
+            </div>
+            <span class="font-bold text-xl text-slate-800 dark:text-white"
+              >control+</span
+            >
+          </a>
+          <p class="text-sm">
+            © 2024 Control Mais。保留所有权利。
+          </p>
+          <div class="flex justify-center gap-6 mt-4">
+            <a
+              class="hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >使用条款</a
+            >
+            <a
+              class="hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >隐私政策</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const btn = document.querySelector("header button");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      // 点击按钮打开/关闭
+      btn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // 点击菜单内任意链接关闭菜单
+      const links = mobileMenu.querySelectorAll("a");
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

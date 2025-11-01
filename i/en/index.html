@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Control Plus - Learn, Have Fun and Earn</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/img/favicon.jpg" type="image/x-icon">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#facc15", // yellow-400
+              "background-light": "#f8fafc", // slate-50
+              "background-dark": "#1e293b", // slate-800
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem", // 12px
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-icons-outlined {
+        font-size: inherit;
+      }
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-700 dark:text-slate-300 antialiased"
+  >
+    <div id="root">
+<header
+  class="py-4 px-6 md:px-8 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-50"
+>
+  <div class="container mx-auto flex items-center justify-between">
+    
+    <!-- ✅ LOGO (Desktop: always first | Mobile: always first) -->
+    <a class="flex items-center gap-3 order-1 md:order-1" href="/i/en/index.html">
+      <div class="bg-primary rounded-lg">
+        <img
+          src="/img/logo-controlmais.jpg"
+          alt="Control + Logo"
+          class="w-18 h-10 object-contain"
+        />
+      </div>
+    </a>
+
+    <!-- ✅ DESKTOP MENU (only appears on desktop and stays in the middle) -->
+    <nav class="hidden md:flex items-center gap-4 order-2">
+      <a class="text-sm font-semibold hover:text-primary" href="#testimonials">Testimonials</a>
+      <a class="text-sm font-semibold hover:text-primary" href="#faq">FAQ</a>
+      <a class="text-sm font-semibold py-2 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+        href="https://ev.controlmais.com.br/publico/index.php/entrar/login/">Login</a>
+      <a class="bg-primary text-black font-bold py-2 px-4 rounded-lg hover:opacity-90"
+        href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar">Register</a>
+    </nav>
+
+    <!-- ✅ FLAGS -->
+    <!-- Desktop → fixed position after menu -->
+    <!-- Mobile → automatically go to the middle -->
+    <div class="flex items-center gap-2 order-3 md:order-3 mx-auto md:mx-0">
+      <a href="/i/zh/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/cn.png" class="w-full h-full object-cover" alt="Chinese" />
+      </a>
+      <a href="/i/br/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/br.png" class="w-full h-full object-cover" alt="Portuguese" />
+      </a>
+      <a href="/i/en/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/us.png" class="w-full h-full object-cover" alt="English" />
+      </a>
+      <a href="/i/es/index.html" class="w-10 h-7 overflow-hidden rounded-[4px] shadow">
+        <img src="https://flagcdn.com/w80/es.png" class="w-full h-full object-cover" alt="Spanish" />
+      </a>
+    </div>
+
+    <!-- ✅ MOBILE BUTTON (always on the right on mobile) -->
+    <button
+      class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 order-4"
+    >
+      <span class="material-icons-outlined text-slate-800 dark:text-white">menu</span>
+    </button>
+
+  </div>
+</header>
+
+
+
+      <!-- MOBILE MENU -->
+      <div
+        id="mobileMenu"
+        class="md:hidden fixed top-16 right-0 bg-background-light dark:bg-background-dark shadow-lg w-56 p-6 rounded-lg hidden"
+      >
+        <nav class="flex flex-col gap-4">
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="#testimonials"
+            >Testimonials</a
+          >
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="#faq"
+            >FAQ</a
+          >
+          <a
+            class="font-semibold hover:text-primary transition-colors"
+            href="https://ev.controlmais.com.br/publico/index.php/entrar/login/"
+            >Login</a
+          >
+          <a
+            class="bg-primary text-black font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+            href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+            >Register</a
+          >
+        </nav>
+      </div>
+
+      <main>
+        <section class="py-20 md:py-32 px-6 md:px-8">
+          <div
+            class="container mx-auto grid md:grid-cols-2 gap-12 items-center"
+          >
+            <div class="text-center md:text-left">
+              <h1
+                class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight mb-4"
+              >
+                Learn while having fun, Earn by raising awareness in others.
+              </h1>
+              <p class="text-lg md:text-xl mb-8">
+                Transform your learning into a profitable and fun journey.
+                With Control Plus courses, you develop new skills
+                and not only earn by operating Control Plus strategies,
+                but you can also earn extra income by being part of Control Plus.
+              </p>
+              <a
+                class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg shadow-yellow-500/20"
+                href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+              >
+                I want to start now
+              </a>
+            </div>
+            <div>
+              <img
+                alt="Two young people smiling and collaborating on a project on a laptop"
+                class="rounded-lg shadow-2xl w-full h-auto object-cover"
+                src="/img/welcomeimg.jpg"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20 px-6 md:px-8">
+          <div
+            class="container mx-auto flex flex-col md:flex-row items-center gap-12"
+          >
+            <!-- ✅ IMAGE ON THE RIGHT -->
+            <div class="flex-1">
+              <div
+                class="aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg shadow-lg overflow-hidden"
+              >
+                <img
+                  src="/img/resultado.jpg"
+                  alt="Result"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <!-- ✅ TEXT ON THE LEFT -->
+            <div class="flex-1 text-left">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Ready to know the right time to enter and exit trades?
+              </h2>
+
+              <p class="text-lg mb-8">
+                In the Control + course, you will develop this decisive skill
+                in the micro movement of the traded asset. Learn from those who
+                have already turned this challenge into real results.
+              </p>
+
+            
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+          id="mentoring-pam"
+        >
+          <div class="container mx-auto">
+            <div
+              class="bg-background-light dark:bg-background-dark rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center"
+            >
+              <div class="md:w-1/2 p-8 md:p-12">
+                <h2
+                  class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+                >
+                  In Control Plus courses
+                </h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                  In our courses, you'll have access to an innovative learning method,
+                  focused on quick results and immediate applicability.
+                  We'll demystify day trading in a simple and direct way,
+                  so you can make smarter and more profitable decisions, learning to LOSE like
+                  a professional. If you don't know how to lose little, you'll NEVER make a lot.
+                </p>
+                <a
+                  class="inline-block bg-primary text-black font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity"
+                  href="#"
+                >
+                  Discover our courses
+                </a>
+              </div>
+              <div class="md:w-1/2 h-64 md:h-auto">
+                <img
+                  alt="Control + Mentor smiling in a professional environment"
+                  class="w-full h-full object-cover"
+                  src="/img/mentoria.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8">
+          <div
+            class="container mx-auto grid md:grid-cols-2 gap-12 items-center"
+          >
+<div class="md:order-2">
+  <img
+    alt="Photo of the smiling founder"
+    class="rounded-lg shadow-2xl w-full max-w-md h-80 mx-auto object-contain"
+    src="/img/fundador.jpg"
+  />
+</div>
+
+
+            <div class="text-center md:text-left md:order-1">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Meet our founder
+              </h2>
+              <p class="text-lg mb-4">
+                With years of experience with losses in the financial market, our
+                founder is dedicated to helping others not go through what
+                he went through: SUFFERING, ANGUISH, DISAPPOINTMENT. He truly
+                believes that the trader needs money from OUTSIDE of day trading
+                so they can trade without the duty of making money, doing it
+                not because they need to but because they are capable. That's why we're creating
+                a movement of Control Plus traders to raise awareness among
+                new traders who lose money without control, but
+                remind them that LOSING is part of the process. There's no
+                fighter who wins a fight without taking any hits. We
+                won't analyze your gains, we'll analyze your
+                losses. A report without consistent losses is useless -
+                LEARN TO MAKE MONEY OUTSIDE OF DAY TRADING!!!
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="py-20 md:py-32 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+        >
+          <div class="container mx-auto text-center">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight"
+            >
+              Evolve and achieve control of your emotions
+              <br class="hidden md:block" />
+              with <span class="text-primary">Control +</span> Educational!
+            </h2>
+
+            <p
+              class="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16"
+            >
+              Our numbers speak for themselves. Join a successful community
+              and transform your financial future.
+            </p>
+
+         
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20 px-6 md:px-8">
+          <div class="container mx-auto">
+            <div
+              class="bg-slate-800 dark:bg-slate-900 rounded-lg p-10 md:p-16 text-center shadow-xl"
+            >
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Control + EDUCATIONAL: Invest your time, dedicate yourself and
+                multiply your earnings.
+              </h2>
+              <div class="mt-8">
+                <a
+                  class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity"
+                  href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+                >
+                  I want to be a student!
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+<section class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- TEXT -->
+    <div class="max-w-lg">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        Trade from anywhere.
+      </h2>
+
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+        It doesn't matter if you're a doctor, teacher, freelancer, or homemaker.  
+        If you know what you're doing, you won't need to follow anyone else.  
+        Have MORE control not only in the market — have MORE control of yourself to be successful in all facets of life.
+      </p>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-lg">
+      <div class="aspect-w-16 aspect-h-9">
+        <img
+          alt="Interface of a live trading room with charts and market data"
+          class="w-full h-80 object-cover rounded-md"
+          src="/img/saladeoperacoes.jpg"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        <section class="py-20 px-6 md:px-8" id="testimonials">
+          <div class="container mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                What our students say
+              </h2>
+              <p class="text-lg">
+                Stories from those who have already transformed their learning with Control Plus.
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "The courses are amazing, very didactic! And the referral program is a fantastic bonus. I've already paid for my last course just with the commissions!"
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="Profile photo of Ana Silva"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="/img/mulher de negocio.jpg"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      Ana Silva
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                     Businesswoman
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "Finally a platform that makes studying light and fun. The community is super engaged and the support is excellent. I recommend it with my eyes closed."
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="Profile photo of Carlos Pereira"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLglaikhPtf2rn2q-9ebImceQVqffII7BR-Lxgux7RfBKVuNRtFG5Fx1d-YlEFzCVZHF7nqkL6Ixtvi7nwCWFFCARwX_9GERoOa-Xv1soGg8eMF-ydnWcwbI8RV47enx74QICIeSQjZhyEvFLB8CTyqKJdR3ujoVb6HGmZMjyT1Bhmqd0mycq3KZA3Cfd0yEXiVagLrYEEoWOVd2eQzdZOm-POMcX04KixjSmy4lUhVb1nIU2wpM7nH8-EhSWWg-j5kKcxzNmbltg"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      Carlos Pereira
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                   Uber Driver
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-800 p-8 rounded-lg">
+                <p class="mb-6">
+                  "I never thought learning about micro movements could be so easy to understand. Control Plus changed my perspective and opened new doors in my career."
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    alt="Profile photo of Juliana Costa"
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghE4MTV8g_bSkP0yZ-cdSYW2p7X5pGn9HFMcsMao7mvtrCpPxnpWYL6Jn2w7VpaKCqTDC3r3xEc9DDfH5z81fA12H7P8FgUMObodSM7rvGUh27nO4whenUmv-WFvc4ge-kHZDSy56qjaudk7JVA1pHsjaVEImcweO3yK-bLvl6nsDYzS95hn-KKZC15LYsahTmDP7VeiTtoxOsujpDiFkZJ7a9C-jgjnE1XpOFf6IMqNzQ6NsWS9qbOA9cO6-7OAMrWNqGDms9m0"
+                  />
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">
+                      Juliana Costa
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Nursing Technician
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8">
+          <div class="container mx-auto text-center max-w-3xl">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            >
+              Transforming Lives!
+            </h2>
+
+            <p class="text-lg mb-8">
+              Education is the path to evolution and financial freedom, the power
+              of knowledge transforms lives and those who develop themselves have the power
+              to change their own reality!
+            </p>
+
+            <div
+              class="aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg shadow-lg mb-8 overflow-hidden"
+            >
+              <img
+                src="/img/licenciada.jpg"
+                alt="Result"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+        <section
+          class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900"
+          id="faq"
+        >
+          <div class="container mx-auto max-w-3xl">
+            <div class="text-center mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Frequently Asked Questions
+              </h2>
+              <p class="text-lg">
+                Find answers to the most common questions here.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  How does the referral program work?
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  It's simple! When you sign up, you receive an exclusive link.
+                  For each friend who enrolls through your link, you
+                  earn a commission. The more friends you refer, the more you earn!
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  What are the payment methods?
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  We accept the main payment methods, including credit card,
+                  PIX and bank slip. The entire process is secure and
+                  carried out in an encrypted environment.
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  Do I have lifetime access to the courses?
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  Yes! Once purchased, access to the course content is yours
+                  forever, including all future updates we make to the material.
+                </div>
+              </details>
+              <details
+                class="group bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-sm"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 dark:text-white"
+                >
+                  Do the courses offer a certificate?
+                  <span
+                    class="material-icons-outlined transition-transform duration-300 group-open:rotate-180"
+                    >expand_more</span
+                  >
+                </summary>
+                <div class="mt-4 text-slate-600 dark:text-slate-300">
+                  Your greatest certificate is your performance report.
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-6 md:px-8 bg-slate-100 dark:bg-slate-900">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- TEXT -->
+    <div class="max-w-lg">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+       Day Trading with Discipline and Purpose
+      </h2>
+
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+Day trading is an investment modality that requires much more than
+ just knowing how to click to buy or sell. It's a game of discipline,
+  emotional control, awareness and strategy. Here at Control Plus,
+   we believe that a trader is not formed only by successes, but
+    mainly by the ability to manage their own losses — because
+     those who learn to lose little, gain much more in the long run.
+      </p>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-lg">
+      <div class="aspect-w-16 aspect-h-9">
+        <img
+          alt="Interface of a live trading room with charts and market data"
+          class="w-full h-80 object-cover rounded-md"
+          src="/img/daytrade.jpg"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+        <section class="py-20 px-6 md:px-8" id="cta">
+          <div class="container mx-auto">
+            <div
+              class="bg-slate-800 dark:bg-slate-900 rounded-lg p-10 md:p-16 text-center shadow-xl bg-[url('image-placeholder-5.png')] bg-cover bg-center"
+            >
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to start your journey?
+              </h2>
+              <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+                Join our community of students and discover a new way to
+                learn, grow and earn. Your next big achievement
+                starts here.
+              </p>
+              <a
+                class="inline-block bg-primary text-black font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity"
+                href="https://ev.controlmais.com.br/publico/index.php/entrar/cadastrar"
+              >
+                Sign up for free
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="bg-slate-100 dark:bg-slate-900 py-12 px-6 md:px-8">
+        <div
+          class="container mx-auto text-center text-slate-500 dark:text-slate-400"
+        >
+          <a class="flex items-center justify-center gap-3 mb-4" href="#">
+            <div class="bg-primary p-2 rounded-lg">
+              <span class="material-icons-outlined text-black">show_chart</span>
+            </div>
+            <span class="font-bold text-xl text-slate-800 dark:text-white"
+              >control+</span
+            >
+          </a>
+          <p class="text-sm">
+            © 2024 Control Plus. All rights reserved.
+          </p>
+          <div class="flex justify-center gap-6 mt-4">
+            <a
+              class="hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Terms of Use</a
+            >
+            <a
+              class="hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Privacy Policy</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const btn = document.querySelector("header button");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      // Open/close when clicking the button
+      btn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when clicking any link inside it
+      const links = mobileMenu.querySelectorAll("a");
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
